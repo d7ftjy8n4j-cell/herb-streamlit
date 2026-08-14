@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-中药材图像识别系统 - Streamlit 版
-基于 PaddlePaddle ResNet-50 (PaddleX)，支持 163 种常见中药材识别。
+中药材图像识别系统 - SCMU 版
+特为 2026 药学院 中药（民族药）野外实习 开发。
 
-本地运行:  streamlit run streamlit_app.py
 """
 
 import os
@@ -127,8 +126,8 @@ def predict(img_bytes: bytes) -> list:
 # ---------------------------------------------------------------------------
 st.set_page_config(page_title="中药材识别系统", page_icon="🌿", layout="wide")
 
-st.title("🌿 中药材图像识别系统")
-st.caption("基于 PaddlePaddle ResNet-50 · 支持 163 种常见中药材 · Top-1 准确率 98.1%")
+st.title("🌿 中药材图像识别系统 - SCMU 版")
+st.caption("特为 2026 药学院 中药（民族药）野外实习 开发")
 
 sample_files = sorted(glob.glob(os.path.join(SAMPLE_DIR, "*.jpg")))
 sample_names = {os.path.basename(p): p for p in sample_files}
@@ -212,5 +211,4 @@ if img_bytes is not None:
 st.divider()
 st.caption(
     "⚠️ 识别结果仅供学习参考，不构成医疗建议。"
-    "项目地址: github.com/mengze666/Image-recognition-of-Chinese-herbal-medicine"
 )
